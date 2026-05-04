@@ -1,5 +1,6 @@
 import os
 import psycopg
+from psycopg.types.json import Json
 
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
@@ -25,7 +26,7 @@ with psycopg.connect(DATABASE_URL) as conn:
                 ["budget", "follow-up"],
                 ["Serge"],
                 5,
-                {"channel": "example", "captured_by": "python-client"},
+                Json({"channel": "example", "captured_by": "python-client"}),
             ),
         )
         inserted = cur.fetchone()

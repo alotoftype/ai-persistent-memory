@@ -105,6 +105,21 @@ ai-persistent-memory/
         └── requirements.txt
 ```
 
+## Tests
+Run the end-to-end smoke test locally:
+```bash
+bash tests/smoke.sh
+```
+
+It validates:
+- container startup
+- schema creation
+- compatibility view creation
+- Node example insert/query
+- Python example insert/query
+
+A GitHub Actions workflow is included at `.github/workflows/validate.yml`.
+
 ## Notes
 - `.env` is intentionally ignored; do not commit real secrets.
 - Host binding defaults to `127.0.0.1` so the database stays local to the machine.
